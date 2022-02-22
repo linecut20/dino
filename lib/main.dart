@@ -1,7 +1,7 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
-import 'character.dart';
+import 'dinogame.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,12 +13,4 @@ void main() {
       game: myGame,
     ),
   );
-}
-
-class DinoGame extends FlameGame {
-  @override
-  Future<void> onLoad() async {
-    await super.onLoad();
-    add(Dino());
-  }
 }
