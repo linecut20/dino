@@ -3,6 +3,9 @@ import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 
 class Dino extends SpriteAnimationComponent{
+  late var standSprite;
+  late var runningSprite;
+
   Future<void> onLoad() async {
     // sprite = await Sprite.load('DinoSprites_tard.gif');
     // size = Vector2.all(50);
@@ -14,7 +17,7 @@ class Dino extends SpriteAnimationComponent{
     // 17 ~ 23 : 질주
     //SpriteSheet (type : Animation)의 파라미터를 통해 커스텀한 정보를
     //SpriteAnimationComponent에 animation으로 적용 가능
-    var sprite = SpriteSheet(
+    standSprite = SpriteSheet(
       image: await Flame.images.load('DinoSprites - tard.png'),
       srcSize: Vector2.all(24)
     ).createAnimation(
@@ -23,7 +26,17 @@ class Dino extends SpriteAnimationComponent{
       stepTime: 0.1, row: 0,
     );
 
-    animation = sprite;
+    runningSprite = SpriteSheet(
+      image: await Flame.images.load('DinoSprites - tard.png'),
+      srcSize: Vector2.all(24)
+    ).createAnimation(
+      from: 4,
+      to: 10,
+      stepTime: 0.1,
+      row: 0
+    );
+
+    animation = runningSprite;
     width = 80;
     height = 80;
   }
@@ -31,6 +44,6 @@ class Dino extends SpriteAnimationComponent{
   @override
   void onGameResize(Vector2 gameSize) {
     super.onGameResize(gameSize);
-    position = Vector2(gameSize.x / 10, gameSize.y / 1.7);
+    position = Vector2(gameSize.x / 10, gameSize.y / 1.35);
   }
 }
