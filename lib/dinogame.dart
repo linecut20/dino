@@ -21,9 +21,9 @@ class DinoGame extends FlameGame {
       ParallaxImageData('parallax/plx-5.png'),
       ParallaxImageData('parallax/plx-6.png'),
     ],
-      fill: LayerFill.width,
+      fill: LayerFill.height,
       alignment: Alignment.center,
-      baseVelocity: Vector2(150, 0)
+      baseVelocity: Vector2(200, 0) // 횡 진행속도, 종 진행속도
     );
 
     add(_background);
